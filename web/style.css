@@ -1,0 +1,18 @@
+.messages_container{
+    border: 2px dashed #777; 
+    background-color: #e1e1e1; 
+    margin-bottom: 10px; padding: 5px;
+}
+
+.form_message{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+    gap: 5px;
+}
+
+.form_message > .message_input{ width: 100%;  font-size: 30px; outline:none; }
+.form_message > .send_message_button{ font-size: 30px; outline:none;  }
