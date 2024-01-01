@@ -35,6 +35,7 @@ class App(CTk.CTk):
         self.message_frame.grid(row=1, column=0, padx=(9, 9), pady=(9, 9), sticky="nsew")
 
         self.entry_message = CTk.CTkEntry(master=self.message_frame, width=350)
+        self.entry_message.bind("<Return>", command=lambda event:self.tasks.append(self.loop.create_task(self.click_async(interval))))
         self.entry_message.grid(row=0, column=0, padx=(0, 9))
 
         self.btn_message = CTk.CTkButton(
@@ -63,7 +64,7 @@ class App(CTk.CTk):
         m_t_ = self.entry_message.get()
         await self.ws.send(m_t_)
         self.entry_message.delete(0, END)
-
+    
     def close(self):
         self.ws.close()
         for task in self.tasks:

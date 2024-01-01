@@ -17,7 +17,7 @@ sudo apt-get install python3-tk
 
 ### dell python3 port
 ```
-# <YOUR_PID> -> 4373 
-lsof -i :3178
+# <YOUR_PID> -> 3193 
+lsof -i :3193
 sudo kill -9 <YOUR_PID>
 ```
