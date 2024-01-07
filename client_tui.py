@@ -10,7 +10,7 @@ from textual.app import App, ComposeResult
 from textual.widgets import Input, TextArea, Button, Header, Footer
 
 port_ = 3193
-us_ = f"client_tui_{rr(0, 100)}"
+us_ = f"user_tui_{rr(0, 100)}"
 ws = f"ws://127.0.0.1:{port_}/{us_}"
 
 class MyApp(App):

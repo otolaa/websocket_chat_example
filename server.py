@@ -2,7 +2,8 @@
 import asyncio
 import http
 import websockets
-import sys
+import sys, datetime
+
 
 all_ws = set()
 
@@ -29,14 +30,16 @@ async def send_ws(message: str):
 
 async def echo(websocket, path:str): 
     try:
-        print("[+] new client commect!", path, sep=' / ')
-        await websocket.send(f'[+] welcome in chat: {path.replace("/", "")} - this your nic.')
+        nic_us = path.replace("/", "")
+        current_date = datetime.datetime.now().strftime('%d/%m/%Y, %H:%M:%S')
+        print("[+] new client commect!", nic_us, current_date, sep=' / ')
+        await websocket.send(f'[+] welcome in chat: {nic_us} - this your nic.')
         all_ws.add(websocket)
 
         async for message in websocket:
             try:
-                print("[+] message from client", message, sep=' / ')
-                await send_ws(message)
+                print(f"[+] message from client {nic_us}", message, sep=' / ')
+                await send_ws(f"{current_date} - {nic_us}: {message}")
             
             except websockets.exceptions.ConnectionClosedOK as e:
                 print('echo', e, sep=' / ', end='\n')

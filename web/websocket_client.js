@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const messageInput = document.querySelector('[name=message_input]');
     const sendMessageButton = document.querySelector('[name=send_message_button]');
 
-    let us_ = `client_js_${getRandomInt(100)}`;
+    let us_ = `user_js_${getRandomInt(100)}`;
     let websocketClient = new WebSocket(`ws://127.0.0.1:3193/${us_}`);
 
     websocketClient.onopen = () => {
