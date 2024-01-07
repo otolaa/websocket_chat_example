@@ -30,6 +30,7 @@ async def send_ws(message: str):
 async def echo(websocket, path:str): 
     try:
         print("[+] new client commect!", path, sep=' / ')
+        await websocket.send(f'[+] welcome in chat: {path.replace("/", "")} - this your nic.')
         all_ws.add(websocket)
 
         async for message in websocket:

@@ -9,7 +9,7 @@ CTk.set_appearance_mode("dark")  # Modes: system (default), light, dark
 CTk.set_default_color_theme("green")  # Themes: blue (default), dark-blue, green
 
 port_ = 3193
-us_ = f"client_send_message_{rr(0, 100)}"
+us_ = f"client_tk_{rr(0, 100)}"
 ws = f"ws://127.0.0.1:{port_}/{us_}"
 
 class App(CTk.CTk):
